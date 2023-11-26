@@ -26,12 +26,13 @@ class HomeVacantes extends Component
 
     public function render()
     {
-        // $vacantes = Vacante::all();
+        //*Consultas para el buscador en la vista home
 
         //! El when se ejecuta unicamente si hay un termino,si lo hay se ejecuta la funcion en la variable query que le agregamos la condicion o busqueda
         $vacantes = Vacante::when($this->termino, function($query){
             $query->where('titulo', 'LIKE' , '%' . $this->termino . '%'); 
         })
+        //*con linea de codigo le estamos pidiendo que haga la busqueda por nombre de la empresas
         ->when($this->termino, function($query){
             $query->orWhere('empresa', 'LIKE' , '%' . $this->termino . '%');
         })
