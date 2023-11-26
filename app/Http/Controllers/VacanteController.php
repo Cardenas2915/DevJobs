@@ -12,7 +12,7 @@ class VacanteController extends Controller
      */
     public function index()
     {
-        //
+        //esta policy la estanciamos en el archivo vacantePolicy y se usa para que solo los reclutadores puedan ingresar a ciertas vistas
         $this->authorize('viewAny', Vacante::class);
         return view('vacantes.index');
     }

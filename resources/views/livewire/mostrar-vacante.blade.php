@@ -36,4 +36,11 @@
             </p>
         </div>
     @endguest
+
+    {{-- la funcion cannot es para mostrar la vista a los usuarios que estan definidos en el policy de vacante y se le pasa el modelo a usar --}}
+    {{-- *en este caso revisa que el usuario dev no pueda crear vacantes --}}
+    @cannot('create', App\Models\Vacante::class)
+        <livewire:postular-vacante :vacante="$vacante" />
+    @endcannot
+        
 </div>
